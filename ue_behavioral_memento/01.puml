@@ -1,0 +1,16 @@
+@startuml
+class TextEditor {
+  +text: str
+  +undo()
+  +redo()
+}
+class EditorState {
+  +text: str
+}
+class EditorCaretaker {
+  +save_state()
+  +restore_state()
+}
+TextEditor --right-> EditorState
+TextEditor "1" -- "1" EditorCaretaker: Memento management
+@enduml

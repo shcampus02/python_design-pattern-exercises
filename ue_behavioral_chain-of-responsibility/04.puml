@@ -1,0 +1,14 @@
+@startuml
+class OnlineShop
+abstract class AbstractDiscountHandler {
+  +abstract calculateDiscount(user:User)
+  #nextDiscountHandler:AbstractDiscountHandler
+}
+class StandardDiscountHandler
+class VIPDiscountHandler
+class SeasonalDiscountHandler
+OnlineShop --> AbstractDiscountHandler: calculateDiscount(user)
+AbstractDiscountHandler <|-- StandardDiscountHandler : <<implements>>
+AbstractDiscountHandler <|-- VIPDiscountHandler : <<implements>>
+AbstractDiscountHandler <|-- SeasonalDiscountHandler : <<implements>>
+@enduml

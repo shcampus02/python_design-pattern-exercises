@@ -1,0 +1,26 @@
+@startuml
+class Car {
+  -engine: string
+  -tires: string
+  -tires_count: int
+  -seats: string
+  -seats_count: int
+  __init__(engine: string, tires: string, tires_count: int, seats: string, seats_count: int)
+  __str__(): string
+}
+
+class CarBuilder {
+  -engine: string
+  -tires: string
+  -tires_count: int
+  -seats: string
+  -seats_count: int
+  __init__()
+  add_engine(engine: string): self
+  add_tires(tires: string, count: int): self
+  add_seats(seats: string, count: int): self
+  build(): Car
+}
+
+CarBuilder ..> "1" Car : Creates >
+@enduml

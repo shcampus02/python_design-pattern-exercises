@@ -1,0 +1,17 @@
+@startuml
+              class Interpreter {
+                +interpret(morse: str) : str
+              }
+              Interface Expression {
+                +interpret() : str
+              }
+              class MorseToCharExpression {
+                +interpret() : str
+              }
+              class TextExpression {
+                +interpret() : str
+              }
+              Interpreter -right-> Expression
+              Expression <|.. MorseToCharExpression
+              Expression <|.. TextExpression
+              @enduml

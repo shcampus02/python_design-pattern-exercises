@@ -1,0 +1,26 @@
+@startuml
+class Fernbedienung {
+  +set_command(command: Command)
+  +button_press()
+}
+
+interface Command {
+  +execute()
+}
+
+class LichtAnCommand {
+  +execute()
+}
+
+class LichtAusCommand {
+  +execute()
+}
+
+class Licht { }
+
+Fernbedienung -right-> Command
+Command <|.. LichtAnCommand
+Command <|.. LichtAusCommand
+LichtAnCommand -down-> Licht
+LichtAusCommand -down-> Licht
+@enduml

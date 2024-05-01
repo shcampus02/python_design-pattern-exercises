@@ -1,0 +1,40 @@
+@startuml
+
+' Define the interface that the client expects to use
+interface SensorAdapterInterface {
+    +read_sensor(): String
+}
+
+' Base class for sensors
+abstract class Sensor {
+    +getData(): String
+}
+
+' Concrete sensor classes
+class TemperatureSensor extends Sensor {
+    +getData(): String
+}
+
+class HumiditySensor extends Sensor {
+    +getData(): String
+}
+
+' Adapter for sensor data normalization
+class SensorAdapter implements SensorAdapterInterface {
+    -sensor: Sensor
+    -unit: String
+    +read_sensor(): String
+}
+
+' Association between adapters and sensors
+SensorAdapter --> Sensor
+
+' Description of client usage
+class AnalyticsSystem {
+    -sensorAdapters: SensorAdapterInterface[]
+    +processData()
+}
+
+AnalyticsSystem --> SensorAdapterInterface : uses >>
+
+@enduml

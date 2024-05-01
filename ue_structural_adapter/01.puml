@@ -1,0 +1,24 @@
+@startuml
+
+interface TimeScheduler {
+    +schedule_event_in_local_time()
+    +display_event_in_local_time()
+}
+
+class TimeZoneAdapter {
+    -scheduler: Scheduler
+    -sourceTZ: String
+    -targetTZ: String
+    +schedule_event_in_local_time()
+    +display_event_in_local_time()
+}
+
+class Scheduler {
+    +schedule_event(time: String)
+    +display_event(time: String)
+}
+
+TimeScheduler <|-down- TimeZoneAdapter
+TimeZoneAdapter -down-> Scheduler : uses
+
+@enduml

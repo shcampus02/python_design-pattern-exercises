@@ -1,0 +1,25 @@
+@startuml
+            abstract class TaskState {
+                +next(task : Task)
+            }
+
+            class NewTaskState {
+            }
+
+            class InProgressTaskState {
+            }
+
+            class CompletedTaskState {
+            }
+
+            class Task {
+                -state : TaskState
+                +get_state() : TaskState
+                +advance_state() : void
+            }
+
+            TaskState <|-- NewTaskState
+            TaskState <|-- InProgressTaskState
+            TaskState <|-- CompletedTaskState
+            Task -> TaskState
+            @enduml

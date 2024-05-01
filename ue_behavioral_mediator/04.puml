@@ -1,0 +1,18 @@
+@startuml
+class SensorMediator {
+  +add_sensor(sensor: Sensor)
+}
+
+interface Sensor {
+  +change_temperature(temperature: float)
+  +update(new_temperature: float)
+}
+
+class TemperatureSensor {
+  +change_temperature(temperature: float)
+  +update(new_temperature: float)
+}
+
+SensorMediator --> Sensor : Mediates communication
+Sensor <|.. TemperatureSensor
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+              abstract class AccountState {
+                  +withdraw()
+                  +deposit()
+              }
+
+              class PositiveBalanceState {
+              }
+
+              class ZeroBalanceState {
+              }
+
+              class NegativeBalanceState {
+              }
+
+              class Account {
+                  -state : AccountState
+                  +get_state() : AccountState
+                  +withdraw(amount : double) : void
+                  +deposit(amount : double) : void
+              }
+
+              AccountState <|-- PositiveBalanceState
+              AccountState <|-- ZeroBalanceState
+              AccountState <|-- NegativeBalanceState
+              Account -> AccountState
+              @enduml

@@ -1,0 +1,11 @@
+@startuml
+class EventTicket {
+  -event: string
+  -date: string
+  -seat: string
+  +set_seat(seat: string): void
+  +clone(): EventTicket
+}
+
+EventTicket --|> EventTicket : clones >
+@enduml

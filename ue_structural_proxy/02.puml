@@ -1,0 +1,11 @@
+@startuml
+class Database {
+  +insert(data: string): void
+}
+
+class LoggingProxy {
+  -database: Database
+  +insert(data: string): void
+}
+LoggingProxy --> Database: Uses
+@enduml

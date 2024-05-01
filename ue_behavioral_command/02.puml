@@ -1,0 +1,26 @@
+@startuml
+                   class Texteditor {
+                     +set_command(command: Command)
+                     +aktion_ausfuehren()
+                   }
+
+                   interface Command {
+                     +execute()
+                   }
+
+                   class SchreibenCommand {
+                     +execute()
+                   }
+
+                   class LöschenCommand {
+                     +execute()
+                   }
+
+                   class Text { }
+
+                   Texteditor -right-> Command
+                   Command <|.. SchreibenCommand
+                   Command <|.. LöschenCommand
+                   SchreibenCommand -down-> Text
+                   LöschenCommand -down-> Text
+                   @enduml

@@ -1,0 +1,39 @@
+@startuml
+            class HomeAutomationSystem {
+              +set_command(command: Command)
+              +button_press()
+            }
+
+            interface Command {
+              +execute()
+            }
+
+            class LichtAnCommand {
+              +execute()
+            }
+
+            class LichtAusCommand {
+              +execute()
+            }
+
+            class ThermostatHochCommand {
+              +execute()
+            }
+
+            class ThermostatRunterCommand {
+              +execute()
+            }
+
+            class Licht { }
+            class Thermostat { }
+
+            HomeAutomationSystem -right-> Command
+            Command <|.. LichtAnCommand
+            Command <|.. LichtAusCommand
+            Command <|.. ThermostatHochCommand
+            Command <|.. ThermostatRunterCommand
+            LichtAnCommand -down-> Licht
+            LichtAusCommand -down-> Licht
+            ThermostatHochCommand -down-> Thermostat
+            ThermostatRunterCommand -down-> Thermostat
+            @enduml

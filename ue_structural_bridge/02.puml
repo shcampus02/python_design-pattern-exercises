@@ -1,0 +1,47 @@
+@startuml
+' Define the abstraction for data persistence
+abstract class DataManager {
+    -storage: Storage
+    +store(data: Map)
+    +switch_storage(storage: Storage)
+}
+
+' Define the implementor interface for different storage types
+interface Storage {
+    +persist(data: Map)
+}
+
+' Concrete implementor for SQL database storage
+class SQLStorage implements Storage {
+    +persist(data: Map)
+}
+
+' Concrete implementor for NoSQL database storage
+class NoSQLStorage implements Storage {
+    +persist(data: Map)
+}
+
+' Concrete implementor for InMemory database storage
+class InMemoryStorage implements Storage {
+    +persist(data: Map)
+}
+
+' Show the bridge between DataManager and Storage
+DataManager o-- Storage
+
+note right of DataManager
+  DataManager acts as an abstraction that can work\n
+  with any type of Storage. It does not depend on the\n
+  specific details of database technologies.
+end note
+
+note left of Storage
+  Storage is the implementor interface for storage operations.\n
+  Each concrete storage class handles data persistence in a\n
+  specific type of database.
+end note
+
+note "Example Usage\nnew DataManager(new SQLStorage())\nnew DataManager(new NoSQLStorage())" as N1
+DataManager -down- N1
+
+@enduml

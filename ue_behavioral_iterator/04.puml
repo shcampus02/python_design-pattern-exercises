@@ -1,0 +1,19 @@
+@startuml
+      class Graph {
+        +add_node(node: Node)
+        +create_iterator() : Iterator
+      }
+      class Node {
+      }
+      interface Iterator {
+        +has_next() : boolean
+        +next() : Node
+      }
+      class GraphIterator {
+        +has_next() : boolean
+        +next() : Node
+      }
+      Graph -right-> Iterator
+      Graph -> Node
+      Iterator <|.. GraphIterator
+      @enduml

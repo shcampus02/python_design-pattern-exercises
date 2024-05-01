@@ -1,0 +1,19 @@
+@startuml
+             class BinaryTree {
+               +add_node(node: Node)
+               +create_iterator() : Iterator
+             }
+             class Node {
+             }
+             interface Iterator {
+               +has_next() : boolean
+               +next() : Node
+             }
+             class BinaryTreeIterator {
+               +has_next() : boolean
+               +next() : Node
+             }
+             BinaryTree -right-> Iterator
+             BinaryTree -> Node
+             Iterator <|.. BinaryTreeIterator
+             @enduml

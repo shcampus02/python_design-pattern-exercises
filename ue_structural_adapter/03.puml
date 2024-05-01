@@ -1,0 +1,39 @@
+@startuml
+
+' Define the interface that the client expects to use
+interface PaymentProcessor {
+    +process_payment(amount: Double, currency: String)
+}
+
+' Concrete Adapters implementing the PaymentProcessor interface
+class PayPalAdapter implements PaymentProcessor {
+    -realProcessor: PayPalAPI
+    +process_payment(amount: Double, currency: String)
+}
+
+class BitcoinAdapter implements PaymentProcessor {
+    -realProcessor: BitcoinAPI
+    +process_payment(amount: Double, currency: String)
+}
+
+' Real payment processing systems which have their own method definitions
+class PayPalAPI {
+    +sendPayment(amount: Double, currency: String)
+}
+
+class BitcoinAPI {
+    +transferCrypto(amount: Double, currency: String)
+}
+
+' Association between adapters and real APIs
+PayPalAdapter ..> PayPalAPI
+BitcoinAdapter ..> BitcoinAPI
+
+' Description of client usage
+class Client {
+    -paymentProcessor: PaymentProcessor
+}
+
+Client -right-> PaymentProcessor : uses >>
+
+@enduml

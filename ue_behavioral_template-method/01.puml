@@ -1,0 +1,17 @@
+@startuml
+                   abstract class DatabaseQuery {
+                     +run(query: String): void
+                     +connect(): void
+                     +execute(query: String): void
+                     +disconnect(): void
+                   }
+
+                   class MySQLQuery {
+                   }
+
+                   class PostgreSQLQuery {
+                   }
+
+                   DatabaseQuery <|-- MySQLQuery
+                   DatabaseQuery <|-- PostgreSQLQuery
+                   @enduml

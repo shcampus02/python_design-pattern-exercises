@@ -1,0 +1,7 @@
+@startuml
+                   class Tree { }
+                   class TreeFactory {
+                     +get_tree(name: String) : Tree
+                   }
+                   TreeFactory "1" -right- "n" Tree
+                   @enduml

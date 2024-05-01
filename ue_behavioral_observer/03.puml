@@ -1,0 +1,14 @@
+@startuml
+                class WeatherData {}
+
+                class WeatherDisplay {
+                  +update()
+                }
+
+                class WeatherStation {
+                  +register(observer: WeatherDisplay)
+                  +change_weather(weather: str, temperature: float)
+                }
+
+                WeatherDisplay <.. WeatherStation : Updates
+                @enduml

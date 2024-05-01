@@ -1,0 +1,18 @@
+@startuml
+abstract class Animal {
+  +clone(): Animal
+  +set_habitat(habitat: string): void
+}
+
+class Tiger <<Animal>> {
+  +clone(): Animal
+  +set_habitat(habitat: string): void
+}
+
+class AnimalRegistry {
+  +register_animal(type: string, habitat: string): Animal
+}
+
+Animal <|-- Tiger
+AnimalRegistry ..> Animal : clones >
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+class Book {
+  +describe(): void
+}
+
+class Fiction <<Book>> {
+  +describe(): void
+}
+
+class NonFiction <<Book>> {
+  +describe(): void
+}
+
+class BookFactory {
+  +create_book(genre: string): Book
+}
+
+BookFactory ..> Fiction : creates >
+BookFactory ..> NonFiction : creates >
+@enduml

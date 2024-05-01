@@ -1,0 +1,20 @@
+@startuml
+                   interface FileSystemElement {
+                     +accept(visitor: FileSystemVisitor): void
+                   }
+
+                   class File {
+                   }
+
+                   class Directory {
+                   }
+
+                   interface FileSystemVisitor {
+                     +visitFile(file: File): void
+                     +visitDirectory(dir: Directory): void
+                   }
+
+                   FileSystemElement <|-- File
+                   FileSystemElement <|-- Directory
+                   FileSystemVisitor ..> FileSystemElement
+                   @enduml

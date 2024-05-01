@@ -1,0 +1,14 @@
+@startuml
+      class Newsletter {}
+
+      class User {
+        +update()
+      }
+
+      class NewsletterProvider {
+        +register(observer: User)
+        +publish_newsletter(content: str)
+      }
+
+      User <.. NewsletterProvider : Updates
+      @enduml

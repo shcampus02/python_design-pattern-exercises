@@ -1,0 +1,12 @@
+@startuml
+class WebService {
+  +getData(url: string): string
+}
+
+class CachingProxy {
+  -service: WebService
+  -cache: map[string, string]
+  +getData(url: string): string
+}
+CachingProxy --> WebService: Uses
+@enduml

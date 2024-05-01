@@ -1,0 +1,17 @@
+@startuml
+                       class Browser{
+                         +open_website(url: str)
+                         +save_state()
+                         +load_state()
+                       }
+                       class BrowserState {
+                         -url: str
+                       }
+                       class BrowserHistory {
+                         -history: list
+                         +add_history(memento: BrowserState)
+                         +get_last_visited() : BrowserState
+                       }
+                       Browser --right-> BrowserState
+                       Browser "1" -- "1" BrowserHistory: Memento management
+                       @enduml

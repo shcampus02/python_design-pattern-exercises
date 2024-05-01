@@ -1,0 +1,18 @@
+@startuml
+class Küche {
+  +bereiten_vor(bestellung)
+}
+class Kellner {
+  +aufnehmen_bestellung(gericht)
+  +bringen_bestellung(bestellung)
+}
+class Rechnung {
+  +berechne(bestellung)
+}
+class RestaurantFacade {
+  +bestelle_gericht(gericht)
+}
+RestaurantFacade -right-> Küche
+RestaurantFacade -down-> Kellner
+RestaurantFacade -left-> Rechnung
+@enduml

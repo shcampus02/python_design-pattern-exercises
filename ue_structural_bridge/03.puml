@@ -1,0 +1,46 @@
+@startuml
+' Define the abstraction for sending notifications
+abstract class NotificationSender {
+    -notifier: Notifier
+    +send_alert(message: String)
+    +switch_method(notifier: Notifier)
+}
+
+' Define the implementor interface for different notification methods
+interface Notifier {
+    +send(message: String)
+}
+
+' Concrete implementor for Email notification
+class EmailNotifier implements Notifier {
+    +send(message: String)
+}
+
+' Concrete implementor for SMS notification
+class SMSNotifier implements Notifier {
+    +send(message: String)
+}
+
+' Concrete implementor for Push notification
+class PushNotifier implements Notifier {
+    +send(message: String)
+}
+
+' Show the bridge between NotificationSender and Notifier
+NotificationSender o-- Notifier
+
+note right of NotificationSender
+  NotificationSender acts as an abstraction that can work\n
+  with any type of Notifier. It allows changing the notification\n
+  method dynamically without changing the core logic.
+end note
+
+note left of Notifier
+  Notifier is the implementor interface for sending notifications.\n
+  Each concrete notifier handles the specifics of a notification channel.
+end note
+
+note "Example Usage\nnew NotificationSender(new EmailNotifier())\nnew NotificationSender(new SMSNotifier())" as N1
+NotificationSender -down- N1
+
+@enduml

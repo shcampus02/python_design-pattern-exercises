@@ -1,0 +1,9 @@
+@startuml
+class Configuration {
+  -properties: dict
+  +set_property(key: string, value: any): void
+  +clone(): Configuration
+}
+
+Configuration --|> Configuration : clones >
+@enduml

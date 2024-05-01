@@ -1,0 +1,10 @@
+@startuml
+class RuntimeSettings {
+  -settings: dict
+  -instance: RuntimeSettings
+  {static} +getInstance(): RuntimeSettings
+  +update_setting(name: string, value: string): void
+  +get_setting(name: string): string
+  +get_all_settings(): dict
+}
+@enduml

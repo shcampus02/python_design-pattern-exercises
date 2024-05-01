@@ -1,0 +1,14 @@
+@startuml
+                      class Stock {}
+
+                      class StockObserver {
+                        +update()
+                      }
+
+                      class StockMarket {
+                        +register(observer: StockObserver)
+                        +change_price(stock: str, price: float)
+                      }
+
+                      StockObserver <.. StockMarket : Updates
+                      @enduml

@@ -1,0 +1,12 @@
+@startuml
+abstract class HTMLTag
+HTMLTag : +render(): str
+class LeafHTMLTag
+LeafHTMLTag : +render(): str
+class ParentHTMLTag
+ParentHTMLTag : +add(tag: HTMLTag): void
+ParentHTMLTag : +render(): str
+HTMLTag <|-- LeafHTMLTag
+HTMLTag <|-- ParentHTMLTag
+ParentHTMLTag "1" *-- "*" HTMLTag : contains
+@enduml

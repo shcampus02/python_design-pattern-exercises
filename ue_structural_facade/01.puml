@@ -1,0 +1,18 @@
+@startuml
+class CPU {
+  +freeze()
+  +execute()
+}
+class Memory {
+  +load(position, data)
+}
+class HardDrive {
+  +read(lba, size)
+}
+class ComputerFacade {
+  +start()
+}
+ComputerFacade -right-> CPU
+ComputerFacade -down-> Memory
+ComputerFacade -right-> HardDrive
+@enduml

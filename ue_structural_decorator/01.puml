@@ -1,0 +1,19 @@
+@startuml
+abstract class TextComponent
+TextComponent : +render(): str
+class Text
+Text : +render(): str
+abstract class TextDecorator
+TextDecorator : +render(): str
+TextDecorator -right-> TextComponent
+class BoldDecorator
+BoldDecorator : +render(): str
+class ItalicsDecorator
+ItalicsDecorator : +render(): str
+class UnderlineDecorator
+UnderlineDecorator : +render(): str
+TextComponent <|-- Text
+TextDecorator <|-- BoldDecorator
+TextDecorator <|-- ItalicsDecorator
+TextDecorator <|-- UnderlineDecorator
+@enduml

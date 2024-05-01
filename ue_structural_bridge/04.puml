@@ -1,0 +1,46 @@
+@startuml
+' Define the abstraction for handling payments
+abstract class PaymentManager {
+    -paymentProcessor: PaymentProcessor
+    +process_payment(amount: Double)
+    +switch_processor(paymentProcessor: PaymentProcessor)
+}
+
+' Define the implementor interface for different payment gateways
+interface PaymentProcessor {
+    +process(amount: Double)
+}
+
+' Concrete implementor for Stripe payment gateway
+class StripePaymentProcessor implements PaymentProcessor {
+    +process(amount: Double)
+}
+
+' Concrete implementor for PayPal payment gateway
+class PayPalPaymentProcessor implements PaymentProcessor {
+    +process(amount: Double)
+}
+
+' Concrete implementor for Square payment gateway
+class SquarePaymentProcessor implements PaymentProcessor {
+    +process(amount: Double)
+}
+
+' Show the bridge between PaymentManager and PaymentProcessor
+PaymentManager o-- PaymentProcessor
+
+note right of PaymentManager
+  PaymentManager acts as an abstraction that can work\n
+  with any type of PaymentProcessor. It allows changing the\n
+  payment gateway dynamically without changing the core logic.
+end note
+
+note left of PaymentProcessor
+  PaymentProcessor is the implementor interface for payment gateways.\n
+  Each concrete processor handles the specifics of a payment method.
+end note
+
+note "Example Usage\nnew PaymentManager(new StripePaymentProcessor())\nnew PaymentManager(new PayPalPaymentProcessor())" as N1
+PaymentManager -down- N1
+
+@enduml

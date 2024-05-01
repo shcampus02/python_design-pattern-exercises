@@ -1,0 +1,9 @@
+@startuml
+class Logger {
+  -logs: list
+  -instance: Logger
+  {static} +getInstance(): Logger
+  +log(message: string): void
+  +show_logs(): list
+}
+@enduml

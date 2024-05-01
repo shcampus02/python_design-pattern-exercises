@@ -1,0 +1,19 @@
+@startuml
+                        class BookCollection {
+                          +add_book(book: Book)
+                          +create_iterator() : Iterator
+                        }
+                        class Book {
+                        }
+                        interface Iterator {
+                          +has_next() : boolean
+                          +next() : Book
+                        }
+                        class BookIterator {
+                          +has_next() : boolean
+                          +next() : Book
+                        }
+                        BookCollection -right-> Iterator
+                        BookCollection -> Book
+                        Iterator <|.. BookIterator
+                        @enduml

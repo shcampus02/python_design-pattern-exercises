@@ -1,0 +1,24 @@
+@startuml
+
+interface OldLoggerInterface {
+    +log(message: String)
+}
+
+class OldLogger {
+    +log(message: String)
+}
+
+class NewLogger {
+    +record(message: String)
+}
+
+class LoggerAdapter {
+    -newLogger: NewLogger
+    +log(message: String)
+}
+
+OldLoggerInterface <|.. OldLogger
+OldLoggerInterface <|.. LoggerAdapter
+LoggerAdapter ..> NewLogger : uses
+
+@enduml

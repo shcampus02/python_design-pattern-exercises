@@ -1,0 +1,18 @@
+@startuml
+class Warenkorb {
+  +hinzufügen(produkt)
+  +entfernen(produkt)
+}
+class ZahlungsService {
+  +bezahlen(zahlungsmethode, warenkorb)
+}
+class InventarService {
+  +überprüfen_verfügbarkeit(produkt)
+}
+class OnlineShopFacade {
+  +kaufe_produkt(produkt)
+}
+OnlineShopFacade -up-> Warenkorb
+OnlineShopFacade -right-> ZahlungsService
+OnlineShopFacade -down-> InventarService
+@enduml

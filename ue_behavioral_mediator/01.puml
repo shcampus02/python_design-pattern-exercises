@@ -1,0 +1,25 @@
+@startuml
+                    class ChatMediator {
+                      +add_user(user: User)
+                      +send_message(message: str, user: User)
+                    }
+
+                    interface User {
+                      +send_message(message: str)
+                      +receive_message(message: str)
+                    }
+
+                    class ChatUser {
+                      +send_message(message: str)
+                      +receive_message(message: str)
+                    }
+
+                    class AdminUser{
+                      +send_message(message: str)
+                      +receive_message(message: str)
+                    }
+
+                    ChatMediator --> User : Mediates communication
+                    User <|.. ChatUser
+                    User <|.. AdminUser
+                    @enduml

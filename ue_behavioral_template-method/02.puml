@@ -1,0 +1,17 @@
+@startuml
+                            abstract class BakingRecipe {
+                              +bake(): void
+                              +mixIngredients(): void
+                              +bakeAtRequiredTemperature(): void
+                              +coolDown(): void
+                            }
+
+                            class CookieRecipe {
+                            }
+
+                            class CakeRecipe {
+                            }
+
+                            BakingRecipe <|-- CookieRecipe
+                            BakingRecipe <|-- CakeRecipe
+                            @enduml

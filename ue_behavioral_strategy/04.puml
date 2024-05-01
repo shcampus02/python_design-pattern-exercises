@@ -1,0 +1,21 @@
+@startuml
+                   interface AuthStrategy {
+                     +authenticate(user: String, password: String): boolean
+                   }
+
+                   class BasicAuthStrategy {
+                   }
+
+                   class OAuthStrategy {
+                   }
+
+                   class AuthContext {
+                     -strategy: AuthStrategy
+                     +setStrategy(strategy: AuthStrategy): void
+                     +authenticate(user: String, password: String): boolean
+                   }
+
+                   AuthStrategy <|.. BasicAuthStrategy
+                   AuthStrategy <|.. OAuthStrategy
+                   AuthContext -> AuthStrategy
+                   @enduml

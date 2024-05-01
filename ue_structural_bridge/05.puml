@@ -1,0 +1,46 @@
+@startuml
+' Define the abstraction for handling resource management
+abstract class ResourceCoordinator {
+    -resourceManager: ResourceManager
+    +allocate_resources(resourceType: String, quantity: Integer)
+    +switch_manager(resourceManager: ResourceManager)
+}
+
+' Define the implementor interface for different resource managers
+interface ResourceManager {
+    +allocate(resourceType: String, quantity: Integer)
+}
+
+' Concrete implementor for AWS resource management
+class AWSResourceManager implements ResourceManager {
+    +allocate(resourceType: String, quantity: Integer)
+}
+
+' Concrete implementor for Azure resource management
+class AzureResourceManager implements ResourceManager {
+    +allocate(resourceType: String, quantity: Integer)
+}
+
+' Concrete implementor for OnPremise resource management
+class OnPremiseResourceManager implements ResourceManager {
+    +allocate(resourceType: String, quantity: Integer)
+}
+
+' Show the bridge between ResourceCoordinator and ResourceManager
+ResourceCoordinator o-- ResourceManager
+
+note right of ResourceCoordinator
+  ResourceCoordinator acts as an abstraction that can work\n
+  with any type of ResourceManager. It allows changing the\n
+  resource management platform dynamically without changing the core logic.
+end note
+
+note left of ResourceManager
+  ResourceManager is the implementor interface for managing resources.\n
+  Each concrete manager handles the specifics of a resource management platform.
+end note
+
+note "Example Usage\nnew ResourceCoordinator(new AWSResourceManager())\nnew ResourceCoordinator(new AzureResourceManager())" as N1
+ResourceCoordinator -down- N1
+
+@enduml

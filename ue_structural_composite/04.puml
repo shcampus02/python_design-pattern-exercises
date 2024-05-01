@@ -1,0 +1,16 @@
+@startuml
+abstract class OrganizationalComponent
+OrganizationalComponent : +get_salary(): float
+class Employee
+Employee : +get_salary(): float
+class Manager
+class Developer
+class Department
+Department : +add(component: OrganizationalComponent): void
+Department : +get_salary(): float
+OrganizationalComponent <|-- Employee
+OrganizationalComponent <|-- Department
+Employee <|-- Manager
+Employee <|-- Developer
+Department "1" *-- "*" OrganizationalComponent : contains
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class Cache {
+  -cache: dict
+  -instance: Cache
+  {static} +getInstance(): Cache
+  +add(key: string, value: string): void
+  +get(key: string): string
+}
+@enduml

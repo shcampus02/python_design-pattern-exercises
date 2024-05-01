@@ -1,0 +1,26 @@
+@startuml
+                class Aktienhandel {
+                  +set_command(command: Command)
+                  +transaktion_ausfuehren()
+                }
+
+                interface Command {
+                  +execute()
+                }
+
+                class KaufenCommand {
+                  +execute()
+                }
+
+                class VerkaufenCommand {
+                  +execute()
+                }
+
+                class Aktie { }
+
+                Aktienhandel -right-> Command
+                Command <|.. KaufenCommand
+                Command <|.. VerkaufenCommand
+                KaufenCommand -down-> Aktie
+                VerkaufenCommand -down-> Aktie
+                @enduml

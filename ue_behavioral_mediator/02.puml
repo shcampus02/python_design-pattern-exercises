@@ -1,0 +1,24 @@
+@startuml
+class ComponentMediator {
+  +add_component(component: Component)
+}
+
+interface Component {
+  +click()
+  +update()
+}
+
+class ButtonComponent {
+  +click()
+  +update()
+}
+
+class TextComponent {
+  +click()
+  +update()
+}
+
+ComponentMediator --> Component : Mediates communication
+Component <|.. ButtonComponent
+Component <|.. TextComponent
+@enduml

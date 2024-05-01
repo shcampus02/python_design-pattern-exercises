@@ -1,0 +1,21 @@
+@startuml
+                           interface CompressionStrategy {
+                             +compress(data: File): File
+                           }
+
+                           class ZipCompressionStrategy {
+                           }
+
+                           class RarCompressionStrategy {
+                           }
+
+                           class CompressionContext {
+                             -strategy: CompressionStrategy
+                             +setStrategy(strategy: CompressionStrategy): void
+                             +createArchive(data: File): File
+                           }
+
+                           CompressionStrategy <|.. ZipCompressionStrategy
+                           CompressionStrategy <|.. RarCompressionStrategy
+                           CompressionContext -> CompressionStrategy
+                           @enduml

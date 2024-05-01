@@ -1,0 +1,16 @@
+@startuml
+              class Game {
+                +play()
+                +save()
+                +load()
+              }
+              class GameState {
+                +gameData: str
+              }
+              class GameCaretaker {
+                +save_game()
+                +load_game()
+              }
+              Game --right-> GameState
+              Game "1" -- "1" GameCaretaker: Memento management
+              @enduml

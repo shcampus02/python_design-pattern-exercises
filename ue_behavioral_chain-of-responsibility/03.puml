@@ -1,0 +1,14 @@
+@startuml
+class LoggingSystem
+abstract class AbstractLogger {
+  +abstract log(message:Message)
+  #nextLogger:AbstractLogger
+}
+class InfoLogger
+class WarningLogger
+class ErrorLogger
+LoggingSystem --> AbstractLogger: log(message)
+AbstractLogger <|-- InfoLogger : <<implements>>
+AbstractLogger <|-- WarningLogger : <<implements>>
+AbstractLogger <|-- ErrorLogger : <<implements>>
+@enduml

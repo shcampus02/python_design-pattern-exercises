@@ -1,0 +1,20 @@
+@startuml
+class Vehicle {
+  +move(): void
+}
+
+class Car <<Vehicle>> {
+  +move(): void
+}
+
+class Truck <<Vehicle>> {
+  +move(): void
+}
+
+class VehicleFactory {
+  +get_vehicle(type: string): Vehicle
+}
+
+VehicleFactory ..> Car : creates >
+VehicleFactory ..> Truck : creates >
+@enduml

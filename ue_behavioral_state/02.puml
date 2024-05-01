@@ -1,0 +1,25 @@
+@startuml
+abstract class State {
+    +handle()
+}
+
+class StateA {
+}
+
+class StateB {
+}
+
+class StateC {
+}
+
+class StateMachine {
+    -state : State
+    +set_state(state : State) : void
+    +handle() : void
+}
+
+State <|-- StateA
+State <|-- StateB
+State <|-- StateC
+StateMachine -> State
+@enduml

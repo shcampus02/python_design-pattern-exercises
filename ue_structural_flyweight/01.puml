@@ -1,0 +1,7 @@
+@startuml
+                           class Icon { }
+                           class IconFactory {
+                             +get_icon(name: String) : Icon
+                           }
+                           IconFactory "1" -right- "n" Icon
+                           @enduml

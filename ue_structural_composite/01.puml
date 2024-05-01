@@ -1,0 +1,12 @@
+@startuml
+abstract class FileSystemComponent
+FileSystemComponent : +get_size(): int
+class File
+File : +get_size(): int
+class Directory
+Directory : +add(component: FileSystemComponent): void
+Directory : +get_size(): int
+FileSystemComponent <|-- File
+FileSystemComponent <|-- Directory
+Directory "1" *-- "*" FileSystemComponent : contains
+@enduml

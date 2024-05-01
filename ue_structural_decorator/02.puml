@@ -1,0 +1,19 @@
+@startuml
+abstract class VehicleComponent
+VehicleComponent : +get_price(): float
+class Car
+Car : +get_price(): float
+abstract class VehicleDecorator
+VehicleDecorator : +get_price(): float
+VehicleDecorator -right-> VehicleComponent
+class AirConditioningDecorator
+AirConditioningDecorator : +get_price(): float
+class SoundSystemDecorator
+SoundSystemDecorator : +get_price(): float
+class LeatherSeatsDecorator
+LeatherSeatsDecorator : +get_price(): float
+VehicleComponent <|-- Car
+VehicleDecorator <|-- AirConditioningDecorator
+VehicleDecorator <|-- SoundSystemDecorator
+VehicleDecorator <|-- LeatherSeatsDecorator
+@enduml

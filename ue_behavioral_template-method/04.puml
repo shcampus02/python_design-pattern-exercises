@@ -1,0 +1,19 @@
+@startuml
+abstract class SoftwareDevelopmentProcess {
+  +developSoftware(): void
+  +analyzeRequirements(): void
+  +designSoftware(): void
+  +codeSoftware(): void
+  +testSoftware(): void
+  +deploySoftware(): void
+}
+
+class AgileMethodology {
+}
+
+class WaterfallMethodology {
+}
+
+SoftwareDevelopmentProcess <|-- AgileMethodology
+SoftwareDevelopmentProcess <|-- WaterfallMethodology
+@enduml

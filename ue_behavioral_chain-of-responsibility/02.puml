@@ -1,0 +1,14 @@
+@startuml
+class Client
+abstract class AbstractValidator {
+  +abstract validate(data)
+  #nextValidator:AbstractValidator
+}
+class EmailValidator
+class PhoneNumberValidator
+class EmptyFieldValidator
+Client --> AbstractValidator: validate(data)
+AbstractValidator <|-- EmailValidator : <<implements>>
+AbstractValidator <|-- PhoneNumberValidator : <<implements>>
+AbstractValidator <|-- EmptyFieldValidator : <<implements>>
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+                   interface SortingStrategy {
+                     +sort(data: List): List
+                   }
+
+                   class QuickSortStrategy {
+                   }
+
+                   class MergeSortStrategy {
+                   }
+
+                   class SortingContext {
+                     -strategy: SortingStrategy
+                     +setStrategy(strategy: SortingStrategy): void
+                     +sort(data: List): List
+                   }
+
+                   SortingStrategy <|.. QuickSortStrategy
+                   SortingStrategy <|.. MergeSortStrategy
+                   SortingContext -> SortingStrategy
+                   @enduml

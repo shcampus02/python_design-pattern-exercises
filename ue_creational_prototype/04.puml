@@ -1,0 +1,9 @@
+@startuml
+class TaskList {
+  -project_name: string
+  -tasks: list
+  +clone(): TaskList
+}
+
+TaskList --|> TaskList : clones >
+@enduml

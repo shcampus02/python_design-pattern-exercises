@@ -1,0 +1,25 @@
+@startuml
+class Computer {
+  -cpu: string
+  -gpu: string
+  -ram: string
+  -storage: string
+  __init__(cpu: string, gpu: string, ram: string, storage: string)
+  __str__(): string
+}
+
+class ComputerBuilder {
+  -cpu: string
+  -gpu: string
+  -ram: string
+  -storage: string
+  __init__()
+  set_cpu(cpu: string): self
+  set_gpu(gpu: string): self
+  add_ram(ram: string): self
+  add_storage(storage: string): self
+  build(): Computer
+}
+
+ComputerBuilder ..> "1" Computer : Creates >
+@enduml

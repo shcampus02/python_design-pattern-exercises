@@ -1,0 +1,18 @@
+@startuml
+                        class Config {
+                          +set(key: str, value)
+                          +get(key: str)
+                          +save_state()
+                          +restore_state()
+                        }
+                        class ConfigSnapshot {
+                          -config: dict
+                        }
+                        class ConfigManager {
+                          -snapshots: list
+                          +make_snapshot(Config)
+                          +restore(Config)
+                        }
+                        Config --right-> ConfigSnapshot
+                        Config "1" -- "1" ConfigManager: Memento management
+                        @enduml

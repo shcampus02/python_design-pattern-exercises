@@ -1,0 +1,7 @@
+@startuml
+class WebUIComponent { }
+class WebUIComponentFactory {
+  +get_web_ui_component(type: String) : WebUIComponent
+}
+WebUIComponentFactory "1" -right- "n" WebUIComponent
+@enduml

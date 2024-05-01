@@ -1,0 +1,20 @@
+@startuml
+class OnlineCourse {
+  -title: string
+  -structure: dict
+  __init__(title: string, structure: dict)
+  __str__(): string
+}
+
+class OnlineCourseBuilder {
+  -title: string
+  -structure: dict
+  __init__(title: string)
+  add_module(module: string): self
+  add_lesson(module: string, lesson: string): self
+  add_quiz(module: string, quiz: string): self
+  build(): OnlineCourse
+}
+
+OnlineCourseBuilder ..> "1" OnlineCourse : Creates >
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+                   class Interpreter {
+                     +interpret(expression: str) : str
+                   }
+                   Interface Expression {
+                     +interpret() : str
+                   }
+                   class HappyFaceExpression {
+                     +interpret() : str
+                   }
+                   class SadFaceExpression {
+                     +interpret() : str
+                   }
+                   class TextExpression {
+                     +interpret() : str
+                   }
+                   Interpreter -right-> Expression
+                   Expression <|.. HappyFaceExpression
+                   Expression <|.. SadFaceExpression
+                   Expression <|.. TextExpression
+                   @enduml

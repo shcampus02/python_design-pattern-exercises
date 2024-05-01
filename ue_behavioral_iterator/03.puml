@@ -1,0 +1,19 @@
+@startuml
+class Playlist {
+  +add_song(song: Song)
+  +create_iterator() : Iterator
+}
+class Song {
+}
+interface Iterator {
+  +has_next() : boolean
+  +next() : Song
+}
+class PlaylistIterator {
+  +has_next() : boolean
+  +next() : Song
+}
+Playlist -right-> Iterator
+Playlist -> Song
+Iterator <|.. PlaylistIterator
+@enduml

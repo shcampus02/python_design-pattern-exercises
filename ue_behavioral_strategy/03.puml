@@ -1,0 +1,21 @@
+@startuml
+                      interface TravelStrategy {
+                        +travel(start: String, destination: String): void
+                      }
+
+                      class TrainStrategy {
+                      }
+
+                      class BusStrategy {
+                      }
+
+                      class TravelContext {
+                        -strategy: TravelStrategy
+                        +setStrategy(strategy: TravelStrategy): void
+                        +arrangeTravel(start: String, destination: String): void
+                      }
+
+                      TravelStrategy <|.. TrainStrategy
+                      TravelStrategy <|.. BusStrategy
+                      TravelContext -> TravelStrategy
+                      @enduml

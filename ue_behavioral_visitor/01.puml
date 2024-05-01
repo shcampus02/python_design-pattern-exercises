@@ -1,0 +1,20 @@
+@startuml
+                    interface Shape {
+                      +accept(visitor: RenderVisitor): void
+                    }
+
+                    class Circle {
+                    }
+
+                    class Rectangle {
+                    }
+
+                    interface RenderVisitor {
+                      +visitCircle(circle: Circle): void
+                      +visitRectangle(rectangle: Rectangle): void
+                    }
+
+                    Shape <|-- Circle
+                    Shape <|-- Rectangle
+                    RenderVisitor ..> Shape
+                    @enduml

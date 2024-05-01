@@ -1,0 +1,16 @@
+@startuml
+class MealPlan {
+  -meals: dict
+  __init__(meals: dict)
+  __str__(): string
+}
+
+class MealPlanBuilder {
+  -meals: dict
+  __init__()
+  add_meal(day: string, time: string, meal: string): self
+  build(): MealPlan
+}
+
+MealPlanBuilder ..> "1" MealPlan : Creates >
+@enduml

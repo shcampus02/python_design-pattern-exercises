@@ -1,0 +1,19 @@
+@startuml
+abstract class PizzaComponent
+PizzaComponent : +get_cost(): float
+class Pizza
+Pizza : +get_cost(): float
+abstract class PizzaDecorator
+PizzaDecorator : +get_cost(): float
+PizzaDecorator -right-> PizzaComponent
+class CheeseDecorator
+CheeseDecorator : +get_cost(): float
+class TomatoDecorator
+TomatoDecorator : +get_cost(): float
+class HamDecorator
+HamDecorator : +get_cost(): float
+PizzaComponent <|-- Pizza
+PizzaDecorator <|-- CheeseDecorator
+PizzaDecorator <|-- TomatoDecorator
+PizzaDecorator <|-- HamDecorator
+@enduml

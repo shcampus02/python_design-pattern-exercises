@@ -1,0 +1,18 @@
+@startuml
+              abstract class BuildingBlueprint {
+                +build(): void
+                +layFoundation(): void
+                +buildStructure(): void
+                +installUtilities(): void
+                +finishBuilding(): void
+              }
+
+              class HouseBlueprint {
+              }
+
+              class ApartmentBlockBlueprint {
+              }
+
+              BuildingBlueprint <|-- HouseBlueprint
+              BuildingBlueprint <|-- ApartmentBlockBlueprint
+              @enduml

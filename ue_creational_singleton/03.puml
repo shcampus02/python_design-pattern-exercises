@@ -1,0 +1,9 @@
+@startuml
+class ConfigurationManager {
+  -config: dict
+  -instance: ConfigurationManager
+  {static} +getInstance(): ConfigurationManager
+  +load(config: dict): void
+  +get_config(): dict
+}
+@enduml

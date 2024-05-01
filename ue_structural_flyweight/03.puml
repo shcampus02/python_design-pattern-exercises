@@ -1,0 +1,7 @@
+@startuml
+class TextFormat { }
+class TextFormatFactory {
+  +get_text_format(style: String) : TextFormat
+}
+TextFormatFactory "1" -right- "n" TextFormat
+@enduml

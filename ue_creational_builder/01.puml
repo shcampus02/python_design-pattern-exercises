@@ -1,0 +1,22 @@
+@startuml
+class BlogPost {
+  -title: string
+  -tags: list
+  -content: string
+  __init__(title: string, tags: list, content: string)
+  __str__(): string
+}
+
+class BlogPostBuilder {
+  -title: string
+  -tags: list
+  -content: string
+  __init__()
+  set_title(title: string): self
+  add_tag(tag: string): self
+  set_content(content: string): self
+  build(): BlogPost
+}
+
+BlogPostBuilder ..> "1" BlogPost : Creates >
+@enduml

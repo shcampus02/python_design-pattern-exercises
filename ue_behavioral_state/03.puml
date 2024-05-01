@@ -1,0 +1,25 @@
+@startuml
+                   abstract class DeliveryStatus {
+                       +next(delivery : Delivery)
+                   }
+
+                   class OrderReceivedStatus {
+                   }
+
+                   class ShippedStatus {
+                   }
+
+                   class DeliveredStatus {
+                   }
+
+                   class Delivery {
+                       -status : DeliveryStatus
+                       +get_status() : DeliveryStatus
+                       +progress_status() : void
+                   }
+
+                   DeliveryStatus <|-- OrderReceivedStatus
+                   DeliveryStatus <|-- ShippedStatus
+                   DeliveryStatus <|-- DeliveredStatus
+                   Delivery -> DeliveryStatus
+                   @enduml

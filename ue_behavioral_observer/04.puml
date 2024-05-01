@@ -1,0 +1,14 @@
+@startuml
+            class Post {}
+
+            class User {
+              +update()
+            }
+
+            class SocialMediaPlatform {
+              +follow(follower: User, following: User)
+              +post(user: User, content: str)
+            }
+
+            User <.. SocialMediaPlatform : Updates
+            @enduml

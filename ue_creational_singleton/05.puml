@@ -1,0 +1,9 @@
+@startuml
+class ResourceAllocator {
+  -resources: list
+  -instance: ResourceAllocator
+  {static} +getInstance(): ResourceAllocator
+  +allocate_resource(): string
+  +list_resources(): list
+}
+@enduml

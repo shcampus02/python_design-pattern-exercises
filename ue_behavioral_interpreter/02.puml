@@ -1,0 +1,21 @@
+@startuml
+class Interpreter {
+  +interpret(expression: str) : str
+}
+Interface Expression {
+  +interpret() : str
+}
+class BoldExpression {
+  +interpret() : str
+}
+class ItalicExpression {
+  +interpret() : str
+}
+class TextExpression {
+  +interpret() : str
+}
+Interpreter -right-> Expression
+Expression <|.. BoldExpression
+Expression <|.. ItalicExpression
+Expression <|.. TextExpression
+@enduml

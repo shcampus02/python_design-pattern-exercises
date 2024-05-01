@@ -1,0 +1,41 @@
+@startuml
+' Define the high-level abstraction for message sending
+abstract class MessageSender {
+    -communicator: Communicator
+    +send(message: String)
+    +switch_protocol(communicator: Communicator)
+}
+
+note right of MessageSender
+  MessageSender is an abstraction that uses different\n
+  communication protocols via the Communicator interface.\n
+  It allows changing the communication protocol dynamically.
+end note
+
+' Define the implementor interface for different communication protocols
+interface Communicator {
+    +send_message(message: String)
+}
+
+note left of Communicator
+  Communicator is the implementor interface for all communication protocols.\n
+  Concrete implementations will handle the specific details of each protocol.
+end note
+
+' Concrete implementations of Communicator for different protocols
+class HTTPCommunicator implements Communicator {
+    +send_message(message: String)
+}
+
+class WebSocketCommunicator implements Communicator {
+    +send_message(message: String)
+}
+
+class MQTTCommunicator implements Communicator {
+    +send_message(message: String)
+}
+
+' Show the delegation from MessageSender to Communicator
+MessageSender o-- Communicator
+
+@enduml

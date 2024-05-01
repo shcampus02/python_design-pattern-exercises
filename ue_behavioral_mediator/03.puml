@@ -1,0 +1,19 @@
+@startuml
+                class ATCMediator {
+                  +register(airplane: Airplane)
+                  +send(message: str, airplane: Airplane)
+                }
+
+                interface Airplane {
+                  +send(message: str)
+                  +receive(message: str)
+                }
+
+                class SpecificAirplane {
+                  +send(message: str)
+                  +receive(message: str)
+                }
+
+                ATCMediator --> Airplane : Mediates communication
+                Airplane <|.. SpecificAirplane
+                @enduml

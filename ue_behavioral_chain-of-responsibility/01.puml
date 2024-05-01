@@ -1,0 +1,14 @@
+@startuml
+class Client
+abstract class AbstractHandler {
+  +abstract handle(request:Request)
+  #nextHandler:AbstractHandler
+}
+class UserCheckHandler
+class PasswordCheckHandler
+class TwoFactorAuthHandler
+Client --> AbstractHandler: send(request)
+AbstractHandler <|-- UserCheckHandler : <<implements>>
+AbstractHandler <|-- PasswordCheckHandler : <<implements>>
+AbstractHandler <|-- TwoFactorAuthHandler : <<implements>>
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+class Widget {
+  -name: string
+  -serial_number: int
+}
+
+class WidgetFactory {
+  -serial_counter: int
+  +create_widget(name: string): Widget
+  +clone_widget(widget: Widget): Widget
+}
+
+WidgetFactory ..> Widget : creates >
+WidgetFactory --|> Widget : clones >
+@enduml

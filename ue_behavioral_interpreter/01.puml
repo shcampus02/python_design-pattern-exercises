@@ -1,0 +1,21 @@
+@startuml
+class Interpreter {
+  +interpret(expression: str) : int
+}
+Interface Expression {
+  +interpret() : int
+}
+class PlusExpression {
+  +interpret() : int
+}
+class MinusExpression {
+  +interpret() : int
+}
+class NumberExpression {
+  +interpret() : int
+}
+Interpreter -right-> Expression
+Expression <|.. PlusExpression
+Expression <|.. MinusExpression
+Expression <|.. NumberExpression
+@enduml

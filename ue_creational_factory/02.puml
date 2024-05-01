@@ -1,0 +1,20 @@
+@startuml
+class Accessory {
+  +connect(): void
+}
+
+class Keyboard <<Accessory>> {
+  +connect(): void
+}
+
+class Mouse <<Accessory>> {
+  +connect(): void
+}
+
+class AccessoryFactory {
+  +get_accessory(type: string): Accessory
+}
+
+AccessoryFactory ..> Keyboard : creates >
+AccessoryFactory ..> Mouse : creates >
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+class Pet {
+  +make_sound(): void
+}
+
+class Dog <<Pet>> {
+  +make_sound(): void
+}
+
+class Cat <<Pet>> {
+  +make_sound(): void
+}
+
+class PetFactory {
+  +get_pet(type: string): Pet
+}
+
+PetFactory ..> Dog : creates >
+PetFactory ..> Cat : creates >
+@enduml

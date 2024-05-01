@@ -1,0 +1,19 @@
+@startuml
+abstract class UserComponent
+UserComponent : +has_access(): bool
+class User
+User : +has_access(): bool
+abstract class UserDecorator
+UserDecorator : +has_access(): bool
+UserDecorator -right-> UserComponent
+class AdminDecorator
+AdminDecorator : +has_access(): bool
+class DeveloperDecorator
+DeveloperDecorator : +has_access(): bool
+class ManagerDecorator
+ManagerDecorator : +has_access(): bool
+UserComponent <|-- User
+UserDecorator <|-- AdminDecorator
+UserDecorator <|-- DeveloperDecorator
+UserDecorator <|-- ManagerDecorator
+@enduml

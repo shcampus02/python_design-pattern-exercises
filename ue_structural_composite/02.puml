@@ -1,0 +1,12 @@
+@startuml
+abstract class Graphic
+Graphic : +get_positions(): List[Tuple[int, int]]
+class Point
+Point : +get_position(): Tuple[int, int]
+class Group
+Group : +add(component: Graphic): void
+Group : +get_positions(): List[Tuple[int, int]]
+Graphic <|-- Point
+Graphic <|-- Group
+Group "1" *-- "*" Graphic : contains
+@enduml

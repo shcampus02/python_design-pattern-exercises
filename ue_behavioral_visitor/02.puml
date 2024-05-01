@@ -1,0 +1,20 @@
+@startuml
+interface Product {
+  +accept(visitor: TaxVisitor): void
+}
+
+class FoodProduct {
+}
+
+class ElectronicsProduct {
+}
+
+interface TaxVisitor {
+  +visitFoodProduct(fProduct: FoodProduct): void
+  +visitElectronicsProduct(eProduct: ElectronicsProduct): void
+}
+
+Product <|-- FoodProduct
+Product <|-- ElectronicsProduct
+TaxVisitor ..> Product
+@enduml

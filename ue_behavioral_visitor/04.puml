@@ -1,0 +1,20 @@
+@startuml
+interface Vehicle {
+  +accept(visitor: MaintenanceVisitor): void
+}
+
+class Car {
+}
+
+class Truck {
+}
+
+interface MaintenanceVisitor {
+  +visitCar(c: Car): void
+  +visitTruck(t: Truck): void
+}
+
+Vehicle <|-- Car
+Vehicle <|-- Truck
+MaintenanceVisitor ..> Vehicle
+@enduml
