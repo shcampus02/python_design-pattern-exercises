@@ -1,4 +1,4 @@
-# 
+# Design Pattern Übungsbeispiele
 
 Dieses Repository enthält Übungsbeispiele für die Gang of Four-Design-Patterns - Behavioral, Creational und Structural Patterns. 
 lle Übungsbeispiele wurden vollständig von ChatGPT erstellt.
